@@ -57,6 +57,19 @@ trivial sessions are skipped. Synthesis for a given session+turn-count runs once
 To retire a single project, set its `SUMMARY.md` `**Status**:` to `archived` —
 the plugin then leaves it untouched.
 
+## Security
+
+The SessionEnd summarizer is a child `claude` process that receives your
+transcript as input — which is **untrusted** (it can contain text you pasted or
+browsed). To contain prompt-injection, that child runs **without**
+`--dangerously-skip-permissions`: it uses `--permission-mode dontAsk` with
+`--allowedTools "Write"` only, and explicitly denies `Bash`, `Read`, `Edit`,
+`WebFetch`, `WebSearch`, `Task`, and `Agent`. This removes code-execution and
+network-egress as injection vectors. A residual remains — a crafted transcript
+could in principle steer a `Write` to an unintended local path — so the
+summarizer prompt also marks all embedded content as data, not instructions.
+Treat your vault as you would any local notes directory.
+
 ## License
 
 MIT

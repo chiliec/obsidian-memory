@@ -1,6 +1,6 @@
 {
   "name": "obsidian-memory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Auto-save each Claude Code session into an Obsidian vault and restore it as context next time.",
   "author": {
     "name": "Vladimir Babin",
