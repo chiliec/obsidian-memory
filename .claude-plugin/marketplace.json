@@ -1,0 +1,14 @@
+{
+  "name": "obsidian-memory",
+  "owner": {
+    "name": "chiliec",
+    "url": "https://github.com/chiliec"
+  },
+  "plugins": [
+    {
+      "name": "obsidian-memory",
+      "source": "./plugins/obsidian-memory",
+      "description": "Auto-save each Claude Code session into an Obsidian vault and restore it as context next time."
+    }
+  ]
+}
